@@ -3,6 +3,7 @@ iOS app to find nutrition info from a database of over 700,000 items, keep track
 
 Once the user launches the app, following can be done:
 - Search for a food item
+- Scroll through search results in a table view, with support for pagination ("infinite" scroll)
 - View details of a food item, including nutritional info
 - View photo of the food item, if available
 - Add a food item to the list of favorites
