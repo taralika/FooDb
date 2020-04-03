@@ -11,3 +11,6 @@ Once the user launches the app, following can be done:
 - View list of all favorite and disliked foods
 - View detailed view of each item in favoorites/disliked list
 - All data is cached via Core Data for future reference
+
+# Building
+The app is built on Xcode 11 and is written in Swift 5
