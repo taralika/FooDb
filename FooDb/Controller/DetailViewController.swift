@@ -14,6 +14,7 @@ class DetailViewController: UIViewController
     @IBOutlet weak var favoriteButton: UIButton!
     @IBOutlet weak var itemInfoLabel: UILabel!
     @IBOutlet weak var itemImageView: UIImageView!
+    @IBOutlet weak var scrollView: UIScrollView!
     
     var foodItem = FoodItem(context: DataController.shared.viewContext)
     
@@ -39,6 +40,12 @@ class DetailViewController: UIViewController
     {
         super.viewDidAppear(animated)
         self.navigationItem.title = "Nutrition Info"
+    }
+    
+    override func viewDidLayoutSubviews()
+    {
+        super.viewDidLayoutSubviews()
+        scrollView.contentSize = itemInfoLabel.frame.size
     }
     
     func configUI()

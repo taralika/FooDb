@@ -194,10 +194,10 @@
                                     <action selector="addToDislike:" destination="l4C-Gb-rJw" eventType="touchUpInside" id="oFC-C8-0JA"/>
                                 </connections>
                             </button>
-                            <scrollView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vvs-ck-Qsl">
+                            <scrollView clipsSubviews="YES" contentMode="scaleAspectFit" bounces="NO" bouncesZoom="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vvs-ck-Qsl">
                                 <rect key="frame" x="50" y="283" width="220" height="161"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="249" text="Label" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="o5x-wS-sEj">
+                                    <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="249" text="Label" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="o5x-wS-sEj">
                                         <rect key="frame" x="0.0" y="0.0" width="252" height="185"/>
                                         <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                         <nil key="textColor"/>
@@ -272,6 +272,7 @@
                         <outlet property="favoriteButton" destination="Iqu-8G-WGr" id="Kcy-zF-ESu"/>
                         <outlet property="itemImageView" destination="paB-HX-pcV" id="VnQ-Ze-4vI"/>
                         <outlet property="itemInfoLabel" destination="o5x-wS-sEj" id="c99-ev-iFB"/>
+                        <outlet property="scrollView" destination="vvs-ck-Qsl" id="wZa-XD-blm"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0FM-4J-Hla" userLabel="First Responder" sceneMemberID="firstResponder"/>
