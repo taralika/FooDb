@@ -82,14 +82,11 @@ class FavoriteTableViewController: UIViewController, UITableViewDelegate, UITabl
             do
             {
                 try DataController.shared.viewContext.save()
-                if favoriteFoodItems.count == 0
-                {
-                   // TODO: add an empty view?
-                }
+                // TODO: add an empty view if no items
             }
             catch
             {
-                print(error)
+                debugPrint(error)
             }
             favoriteTableView.reloadData()
         }

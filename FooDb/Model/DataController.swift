@@ -75,7 +75,7 @@ class DataController
         }
         catch
         {
-            print(error)
+            debugPrint(error)
         }
         
         return [FoodItem()]
@@ -94,7 +94,7 @@ class DataController
         }
         catch
         {
-            print(error)
+            debugPrint(error)
         }
         
         return [FoodItem()]

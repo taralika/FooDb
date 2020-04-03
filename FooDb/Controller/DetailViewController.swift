@@ -86,7 +86,7 @@ class DetailViewController: UIViewController
         }
         catch
         {
-            print(error)
+            debugPrint(error)
         }
     }
     
@@ -111,7 +111,7 @@ class DetailViewController: UIViewController
         }
         catch
         {
-            print(error)
+            debugPrint(error)
         }
     }
 }

@@ -82,14 +82,11 @@ class DislikeTableViewController: UIViewController, UITableViewDelegate, UITable
             do
             {
                 try DataController.shared.viewContext.save()
-                if dislikeFoodItems.count == 0
-                {
-                   // TODO: add an empty view?
-                }
+                // TODO: add an empty view if no items
             }
             catch
             {
-                print(error)
+                debugPrint(error)
             }
             dislikeTableView.reloadData()
         }
