@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		759D535324379F7400A70450 /* Toast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759D535224379F7400A70450 /* Toast.swift */; };
 		75C1E3EC243684EE0031BB89 /* FoodItem+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75C1E3EA243684EE0031BB89 /* FoodItem+CoreDataClass.swift */; };
 		75C1E3EF2436BD1A0031BB89 /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75C1E3EE2436BD1A0031BB89 /* DataController.swift */; };
 		75C1E3F124373A810031BB89 /* ItemViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75C1E3F024373A810031BB89 /* ItemViewCell.swift */; };
@@ -25,6 +26,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		759D535224379F7400A70450 /* Toast.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Toast.swift; sourceTree = "<group>"; };
 		75C1E3EA243684EE0031BB89 /* FoodItem+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FoodItem+CoreDataClass.swift"; sourceTree = "<group>"; };
 		75C1E3EE2436BD1A0031BB89 /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
 		75C1E3F024373A810031BB89 /* ItemViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemViewCell.swift; sourceTree = "<group>"; };
@@ -117,6 +119,7 @@
 		EA7CF83D2041163A0007763E /* View */ = {
 			isa = PBXGroup;
 			children = (
+				759D535224379F7400A70450 /* Toast.swift */,
 				EA4999FF2047084F00EEE17E /* ActivityIndicator.swift */,
 				75C1E3F024373A810031BB89 /* ItemViewCell.swift */,
 				EA2CD8E420523FB300F5C21D /* Assets.xcassets */,
@@ -198,6 +201,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				759D535324379F7400A70450 /* Toast.swift in Sources */,
 				EA7CF81220407D400007763E /* FavoriteTableViewController.swift in Sources */,
 				EA7CF8202040A9760007763E /* SearchViewController.swift in Sources */,
 				EA7CF81420407D510007763E /* DislikeTableViewController.swift in Sources */,

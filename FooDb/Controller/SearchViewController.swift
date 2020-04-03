@@ -30,7 +30,6 @@ class SearchViewController: UIViewController
     override func viewDidLoad()
     {
         super.viewDidLoad()
-        UIApplication.shared.isNetworkActivityIndicatorVisible = true
 
         let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(handleSingleTap(_:)))
         tapRecognizer.numberOfTapsRequired = 1
@@ -79,6 +78,7 @@ extension SearchViewController: UISearchBarDelegate
             return
         }
 
+        searchBar.isLoading = true
         searchTask = FoodRequests.getFoodResults(query: searchText, requestURL: "")
         { (foodItems, nextPageRequestURL, error) in
             self.searchTask = nil
@@ -90,6 +90,17 @@ extension SearchViewController: UISearchBarDelegate
                 {
                     self.itemTableView!.reloadData()
                 }
+            }
+            if (error != nil)
+            {
+                DispatchQueue.main.async
+                {
+                    self.view.makeToast(error: error!)
+                }
+            }
+            DispatchQueue.main.async
+            {
+                searchBar.isLoading = false
             }
         }
     }
@@ -148,6 +159,7 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource
         {
             if (!nextPageRequestURL.isEmpty) // more items?
             {
+                searchBar.isLoading = true
                 searchTask = FoodRequests.getFoodResults(query: "", requestURL: nextPageRequestURL)
                 {(foodItems, nextPageRequestURL, error) in
                     self.searchTask = nil
@@ -159,6 +171,10 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource
                         {
                             self.itemTableView!.reloadData()
                         }
+                    }
+                    DispatchQueue.main.async
+                    {
+                        self.searchBar.isLoading = false
                     }
                 }
             }
@@ -180,6 +196,59 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource
             if let detailVC = segue.destination as? DetailViewController
             {
                 detailVC.foodItem = selectedFoodItem!
+            }
+        }
+    }
+}
+
+extension UISearchBar
+{
+    public var textField: UITextField?
+    {
+        if #available(iOS 13.0, *)
+        {
+            return self.searchTextField
+        }
+        else
+        {
+            let subViews = subviews.flatMap { $0.subviews }
+            guard let textField = (subViews.filter { $0 is UITextField }).first as? UITextField else
+            {
+                return nil
+            }
+            return textField
+        }
+    }
+
+    public var activityIndicator: UIActivityIndicatorView?
+    {
+        return textField?.leftView?.subviews.compactMap{ $0 as? UIActivityIndicatorView }.first
+    }
+
+    var isLoading: Bool
+    {
+        get
+        {
+            return activityIndicator != nil
+        }
+        set
+        {
+            if newValue
+            {
+                if activityIndicator == nil
+                {
+                    let newActivityIndicator = UIActivityIndicatorView(style: .gray)
+                    newActivityIndicator.transform = CGAffineTransform(scaleX: 0.7, y: 0.7)
+                    newActivityIndicator.startAnimating()
+                    newActivityIndicator.backgroundColor = UIColor.white
+                    textField?.leftView?.addSubview(newActivityIndicator)
+                    let leftViewSize = textField?.leftView?.frame.size ?? CGSize.zero
+                    newActivityIndicator.center = CGPoint(x: leftViewSize.width/2, y: leftViewSize.height/2)
+                }
+            }
+            else
+            {
+                activityIndicator?.removeFromSuperview()
             }
         }
     }

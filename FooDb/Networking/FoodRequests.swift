@@ -14,7 +14,7 @@ class FoodRequests
     static var foodItems = [FoodItem]()
     static var foodIds = Set<String>()
     
-    class func getFoodResults(query: String, requestURL: String, completionHandlerForGetFood: @escaping (_ result: [FoodItem]?,_ nextPageRequestURL: String?,_ errorString: String?) -> Void) -> URLSessionDataTask
+    class func getFoodResults(query: String, requestURL: String, completionHandlerForGetFood: @escaping (_ result: [FoodItem]?,_ nextPageRequestURL: String?,_ error: Error?) -> Void) -> URLSessionDataTask
     {
         let methodParameters = ["ingr" : query,
                                 "app_id" : Constants.SERVER.APP_ID,
@@ -45,7 +45,7 @@ class FoodRequests
             // if an error occurs, print it and re-enable the UI
             guard error == nil else
             {
-                completionHandlerForGetFood(nil, nextPageRequestURL, "URL at time of error: \(url)")
+                completionHandlerForGetFood(nil, nextPageRequestURL, error)
                 return
             }
             
@@ -58,7 +58,7 @@ class FoodRequests
                 }
                 catch
                 {
-                    completionHandlerForGetFood(nil, nextPageRequestURL, "Could not parse the data as JSON: '\(data)'")
+                    completionHandlerForGetFood(nil, nextPageRequestURL, error)
                     return
                 }
                 
@@ -79,7 +79,7 @@ class FoodRequests
                 
                 if tempItems.count == 0
                 {
-                    completionHandlerForGetFood(nil, nextPageRequestURL, "Cannot find any food")
+                    completionHandlerForGetFood(nil, nextPageRequestURL, error)
                 }
                 else
                 {
